@@ -1,12 +1,14 @@
+# Play level Variable is called in Task
 - name: Play level variable
   hosts: localhost
   vars:
-    URL: www.google.com
+    URL: play-level.example.com
   tasks:
     - name: Print from variable
       ansible.builtin.debug:
         msg: URL = {{ URL }}
 
+# Variable is called from a file
 - name: variable from file
   hosts: localhost
   vars_files:
@@ -22,6 +24,13 @@
   tasks:
     - name: print from task level var
       vars:
-        URL: task.example.com
+        URL: task-level.example.com
+      ansible.builtin.debug:
+        msg: URL = {{ URL }}
+
+# Variable is called from Inventory file
+- name: Inventory level variable
+  tasks:
+    - name: print from Inventory
       ansible.builtin.debug:
         msg: URL = {{ URL }}
