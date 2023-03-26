@@ -9,7 +9,7 @@
 
 - name: Demo Play var from file
   hosts: localhost
-  var.files:
+  vars_files:
     - ex-var.yml
   tasks:
     - name: Print from var file
