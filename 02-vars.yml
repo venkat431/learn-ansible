@@ -30,6 +30,7 @@
 
 # Variable is called from Inventory file
 - name: Inventory level variable
+  hosts: all
   tasks:
     - name: print from Inventory
       ansible.builtin.debug:
