@@ -1,5 +1,5 @@
 - name: Demo Play 2
-  hosts: all
+  hosts: localhost
   vars:
     URL: www.google.com
   tasks:
