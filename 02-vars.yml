@@ -1,4 +1,4 @@
-- name: Demo Play var
+- name: Play level variable
   hosts: localhost
   vars:
     URL: www.google.com
@@ -7,11 +7,21 @@
       ansible.builtin.debug:
         msg: URL = {{ URL }}
 
-- name: Demo Play var from file
+- name: variable from file
   hosts: localhost
   vars_files:
     - ex-var.yml
   tasks:
     - name: Print from var file
+      ansible.builtin.debug:
+        msg: URL = {{ URL }}
+
+# Task level variables cannot be accessed from another task
+- name: Task level variable
+  hosts: localhost
+  tasks:
+    - name: print from task level var
+      vars:
+        URL: task.example.com
       ansible.builtin.debug:
         msg: URL = {{ URL }}
