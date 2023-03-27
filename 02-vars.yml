@@ -37,7 +37,7 @@
       ansible.builtin.debug:
         msg: URL = {{ URL }} hostname ={{ ansible_hostname }}
 
-#
+# Registering a variable and printing the output
 - name: Register a variable
   hosts: all
   tasks:
