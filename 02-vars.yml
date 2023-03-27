@@ -57,5 +57,5 @@
 # calling the status from set_fact task
     - name: printing the output
       ansible.builtin.debug:
-        msg: "{{ out.rc }}"
+        msg: "{{ OUT.rc }}"
 
