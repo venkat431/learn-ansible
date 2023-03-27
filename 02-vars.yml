@@ -51,7 +51,7 @@
 
 # Registering the exit status in register task
     - name: Declare a variable
-      ansible.builtin.register:
+      ansible.builtin.set_fact:
       status: "{{ OUT.rc }}"
 
 # calling the status from register task
