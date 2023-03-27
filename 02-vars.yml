@@ -34,4 +34,7 @@
   tasks:
     - name: print from Inventory
       ansible.builtin.debug:
-        msg: URL = {{ URL }}
+        msg: URL = {{ URL }} hostname ={{ ansible_hostname }}
+
+#
+#- name:
