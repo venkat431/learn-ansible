@@ -49,13 +49,17 @@
       ansible.builtin.debug:
         msg: "{{ OUT }}"
 
-## Registering the exit status in set_fact task
-#    - name: Declare a variable
-#      ansible.builtin.set_fact: # set_fact stores the output in a standard variable
-#        status: "{{ OUT.rc }}"
+# Registering the exit status in set_fact task
+    - name: Declare a variable
+      ansible.builtin.set_fact: # set_fact stores the output in a standard variable
+        status: "{{ OUT.rc }}"
 
 # calling the status from set_fact task
     - name: printing the output
       ansible.builtin.debug:
-        msg: "{{ OUT.end }}"
+        msg: "{{ status }}"
 
+#  example, we can call directly particular value from var ex: [OUT.end]
+#    - name: printing the output
+#      ansible.builtin.debug:
+#        msg: "{{ OUT.end }}"
