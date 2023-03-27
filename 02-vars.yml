@@ -41,10 +41,21 @@
 - name: Register a variable
   hosts: all
   tasks:
-    - name: register uptime variable
+    - name: shell uptime variable
       ansible.builtin.shell: uptime
       register: OUT
 
     - name: Printing output
       ansible.builtin.debug:
         msg: "{{ OUT }}"
+
+# Registering the exit status in register task
+    - name: Declare a variable
+      ansible.builtin.register:
+      status: "{{ OUT.rc }}"
+
+# calling the status from register task
+    - name: printing the output
+      ansible.builtin.debug:
+        msg: "{{ status }}"
+
