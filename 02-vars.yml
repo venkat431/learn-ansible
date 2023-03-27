@@ -29,6 +29,7 @@
         msg: URL = {{ URL }}
 
 # Variable is called from Inventory file
+# Here in below example "ansible_hostname" is a predefined variable by Ansible called as Ansible facts
 - name: Inventory level variable
   hosts: all
   tasks:
@@ -37,4 +38,13 @@
         msg: URL = {{ URL }} hostname ={{ ansible_hostname }}
 
 #
-#- name:
+- name: Register a variable
+  hosts: all
+  tasks:
+    - name: register uptime variable
+      ansible.builtin.shell: uptime
+      register: OUT
+
+    - name: Printing output
+      ansible.builtin.debug:
+        msg: "{{ OUT }}"
